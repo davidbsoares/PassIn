@@ -24,9 +24,9 @@ namespace PassIn.Application.UseCases.Events.Register {
         }
 
         private void Validate(RequestEventJson request) { // todo: Use FluentValidation
-            if (request.MaximumAttendees <= 0) throw new PassInException("The Maximum attendees is invalid.");
-            if (string.IsNullOrWhiteSpace(request.Title)) throw new PassInException("The Title is required.");
-            if (string.IsNullOrWhiteSpace(request.Details)) throw new PassInException("The Title is required.");
+            if (request.MaximumAttendees <= 0) throw new ErrorOnValidationException("The Maximum attendees is invalid.");
+            if (string.IsNullOrWhiteSpace(request.Title)) throw new ErrorOnValidationException("The Title is required.");
+            if (string.IsNullOrWhiteSpace(request.Details)) throw new ErrorOnValidationException("The Title is required.");
         }
     }
 }

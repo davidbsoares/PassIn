@@ -9,7 +9,7 @@ namespace PassIn.Application.UseCases.Events.GetById {
             var dbContext = new PassInDbContext();
             var entity = dbContext.Events.Find(id);
 
-            if (entity is null) throw new PassInException("An event with this id doesn't exist");
+            if (entity is null) throw new NotFoundException("An event with this id doesn't exist");
 
             return new ResponseEventJson {
                 Id = entity.Id,
